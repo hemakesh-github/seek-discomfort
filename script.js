@@ -15,12 +15,16 @@ let menuIconDiv = document.querySelector(".menu-icon")
 let tab = window.matchMedia("(max-width: 770px)");
 let mobile = window.matchMedia("(max-width: 600px)");
 const mediaTab = () => {
- 
+  console.log("changed")
   let banner = document.querySelectorAll(".swiper-slide img");
   banner.forEach(BannerImage => {
-    let newSrc = BannerImage.getAttribute("alt-src")
-    BannerImage.setAttribute("alt-src", BannerImage.getAttribute("src"));
+    let newSrc = BannerImage.getAttribute("alt-src");
+    console.log(newSrc);
+    let newAlt =  BannerImage.getAttribute("src");
     BannerImage.setAttribute("src", newSrc);
+    BannerImage.setAttribute("alt-src",newAlt);
+    
+
   })
 }
 mobile.addEventListener("change",mediaTab);
